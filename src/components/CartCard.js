@@ -1,14 +1,19 @@
-import "./CartCard.css"
-export const CartCard = ({product}) => {
+import { remove } from "../store/cartSlice";
+import "./CartCard.css";
 
-  const { name, price, image} = product; 
+import { useDispatch } from "react-redux";
+
+export const CartCard = ({product}) => {
+  const {name, price, image} = product;
+
+  const dispatch = useDispatch()
 
   return (
-    <div  className="cartCard">
-      <img src={image} alt={name} />
-      <p className="productName">{name}</p>
-      <p className="productPrice">${price} </p>
-      <button>Remove</button>
-    </div>
+      <div className="cartCard">
+        <img src={image} alt={name} />
+        <p className="productName">{name}</p>
+        <p className="productPrice">${price}</p>
+        <button onClick={()=> dispatch(remove(product))}>Remove</button>
+      </div>
   )
 }

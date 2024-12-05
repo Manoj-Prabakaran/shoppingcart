@@ -1,9 +1,8 @@
-import {ProductCard} from "../components"
-import {useTitle} from "../hooks/useTitle"
+import { useTitle } from "../hooks/useTitle";
+import { ProductCard } from "../components";
 
 export const Home = () => {
-
-  useTitle("Home")
+  useTitle("Home");
 
   const products = [
     {"id": 1, "name": "Sony Wh-Ch510 Bluetooth Wireless", "price": 149, "image": "/assets/images/1001.png"},
@@ -19,7 +18,7 @@ export const Home = () => {
       <section className="products">
         { products.map((product) => (
           <ProductCard key={product.id} product={product} />
-        ))}
+        )) }        
       </section>
     </main>
   )
